@@ -1,0 +1,208 @@
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #282c34;
+  padding: 70px;
+  font-family: "Open Sans", "Arial", snas-serif;
+  color: white;
+}
+
+.input-group {
+  display: block;
+  width: 100%;
+  height: 82px;
+  border: 0;
+  background-color: rgba(75, 128, 182, 0.07);
+  border-bottom-left-radius: 41px;
+  border-bottom-right-radius: 41px;
+  border-top-left-radius: 41px;
+  border-top-right-radius: 0;
+  box-shadow: 0 17px 40px 0 rgba(75, 128, 182, 0.01);
+  margin-bottom: 22px;
+  position: relative;
+  font-size: 17px;
+  color: #a7b4c1;
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out,
+    box-shadow 0.1s ease-in-out;
+}
+
+.input-group:hover {
+  box-shadow: 0 14px 44px 0 rgba(0, 0, 0, 0.077);
+}
+
+.input-group input {
+  position: absolute;
+  border: 0;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0);
+  top: 10px;
+  height: 65px;
+  width: 100%;
+  padding: 0 53px;
+  box-sizing: border-box;
+  z-index: 3;
+  display: block;
+  color: #1a6fc4;
+  font-size: 17px;
+  font-family: "Oxygen", sans-serif;
+  transition: top 0.1s ease-in-out;
+}
+
+.input-group input::placeholder {
+  color: white;
+}
+
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+  top: 10px;
+}
+
+.input-group button {
+  z-index: 1000;
+  position: absolute;
+  border: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 53px;
+  box-sizing: border-box;
+  transition: all 0.1s ease-in-out;
+  cursor:pointer;
+}
+
+.input-group input:focus + button,
+.input-group input:not(:placeholder-shown) + button {
+  font-size: 13px;
+}
+
+.progress{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+svg
+{
+  position:relative;
+  display: flex;
+  align-items: center;
+  width:150px;
+  height:150px;
+}
+
+svg circle
+{
+  width:100%;
+  height:100%;
+  fill:none;
+  align-items: center;
+  stroke:gray;
+  stroke-width:10;
+  stroke-linecap:round;
+  transform:translate(5px,5px);
+}
+
+circle:nth-child(2) {
+  stroke:#00ff43;
+  animation-name: roll;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  background-color: white;
+}
+
+@keyframes roll {
+  from {
+    stroke-dasharray:0;
+  }
+  to {
+  stroke-dasharray:440;
+  }
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+table { 
+	width: 750px; 
+	border-collapse: collapse; 
+	margin:50px auto;
+	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: rgba(75, 128, 182, 0.05); 
+	}
+
+th { 
+	background: #3498db; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+	}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+	  	width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
